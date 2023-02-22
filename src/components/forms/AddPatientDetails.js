@@ -1,28 +1,20 @@
-import React, {useState} from 'react' 
-import DatePicker from 'react-datepicker'
+import React, {useState, useContext} from 'react' 
+import {PatientContext} from '../../contents/Patients/PatientState'
 import './styles/patientform.scss' 
 import "react-datepicker/dist/react-datepicker.css";
 
 function AddPatientDetails() { 
+  const {addPatients, getPatientDetails, patients} = useContext(PatientContext)
     
   const [first_name, setFirstName] = useState("") 
   const [last_name, setLastName] = useState("") 
   const [email, setEmail] = useState("") 
   const [phone_number, setPhoneNumber] = useState(0) 
   const [dateofbirth, setDateofBirth] = useState(new Date()) 
-  const [gender, setGender] = useState("") 
-  const [patients, setPatients] = useState([ 
-    {
-    first_name: "",   
-    last_name: "", 
-    email: "", 
-    phone_number: "", 
-    gender: "", 
-    dateofbirth: ""
+  const [gender, setGender] = useState("male") 
+  
 
-    }
-
-  ])
+ 
   
   return (
     <div className='patient-form'>
@@ -38,7 +30,8 @@ function AddPatientDetails() {
         gender, 
 
       } 
-      setPatients([...patients,new_patient])
+      addPatients(new_patient) 
+     
     }}>
 <div className="row">
 <div className="col"> 
@@ -62,7 +55,7 @@ function AddPatientDetails() {
 </div>   
 <div className="row"> 
 <div className="col">
-<label for="cars">Gender</label>
+<label>Gender</label>
 
 <select className="form-control" onChange={(e) => setGender(e.target.value)}>
   <option value="male">Male</option>
@@ -87,41 +80,7 @@ function AddPatientDetails() {
 
 <input type="submit" className="btn btn-primary btn-lg" value="Submit"/>
 </form>  
-<div>
-        <h1>BookingsList</h1> 
-        
- <table className="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Email</th>  
-      <th scope="col">Phone Number</th> 
-      <th scope="col">Gender</th> 
-      <th scope="col">DOB</th>
-    </tr>
-  </thead>
-  <tbody>
-     
-      {patients.map((patient) => (
-        <tr>
-        <td>{patient.first_name}</td> 
-        <td>{patient.last_name}</td> 
-        <td>{patient.email}</td> 
-        <td>{patient.phone_number}</td> 
-        <td>{patient.gender}</td> 
-        <td>{patient.dateofbirth}</td>
-        </tr>
-      ))}
-     
-      
-    
-    
-  </tbody>
-</table>
 
- </div>
 </div>
   )
 }
