@@ -1,0 +1,18 @@
+.patient-form{
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
+    h1{
+        text-align: center; 
+        margin: 10px 0 10px ;
+    } 
+    form{ 
+        input{ 
+        width: 420px; 
+        height: 80px; 
+        
+        margin-bottom: 12px; 
+        }
+    }
+} 
