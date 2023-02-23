@@ -1,18 +1,34 @@
-.patient-form{
+.patient-container{
+    width: 100%; 
+    display: flex;
+}
+.patient-form{ 
+    flex: 6;
     display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+   
     flex-direction: column; 
     h1{
-        text-align: center; 
-        margin: 10px 0 10px ;
+        text-align: center;  
+        margin: 12px;
+        
     } 
     form{ 
+        label{
+            font-size: 24px; 
+            font-weight: bold;
+        }
         input{ 
-        width: 420px; 
-        height: 80px; 
+        width: 470px; 
+        height: 60px; 
         
         margin-bottom: 12px; 
-        }
+        } 
+        .btn{ 
+            width: 280px; 
+            height: 60px;
+            margin: 34px;
+        } 
+       
     }
 } 

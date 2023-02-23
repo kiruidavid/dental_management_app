@@ -1,17 +1,38 @@
-@import "~react-time-picker/dist/TimePicker.css";
+.booking-container{
+    display: flex; 
+    width: 100%;
+}
 .booking-form{ 
+    flex: 6;
     display: flex; 
     align-items: center; 
     justify-content: center; 
     flex-direction: column;
     h1{
         text-align: center; 
-        margin: 10px 0 10px ;
+      
+      
+        
     } 
-    form{ 
+    form{  
+        label{
+            font-size: 24px; 
+            font-weight: bold;
+        }
          
         input{
-        margin-bottom: 12px; 
-        }
+            width: 370px; 
+            height: 60px; 
+            
+            margin-bottom: 12px;  
+        } 
+        .checkbox-service{ 
+            margin: 12px;
+        .checkbox{
+            width: 23px; 
+            height: 23px; 
+            margin-right: 12px;
+        } 
+    }
     }
 }

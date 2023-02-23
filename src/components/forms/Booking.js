@@ -1,89 +1,88 @@
-import React, {useState} from 'react' 
-import TextField from '@mui/material/TextField';
+import React, {useState, useContext} from 'react' 
+import {useForm} from 'react-hook-form'
+import Sidebar from '../pages/bars/Sidebar';
+import {BookingContext} from '../../contents/Bookings/BookingsState'
 
 import './styles/bookingform.scss' 
 
 
 function Booking() {  
-  const [timevalue, setTimeValue] = useState('10:00');
-  const [first_name, setFirstName] = useState("") 
-  const [phone_number, setPhoneNumber] = useState(0) 
-  
-  const [bookings, setBookings] = useState([
-    {
-      first_name: "David", 
-     
-      phone_number: "56655"
-    },  
-    
-
-]) 
-function timeChange(newValue){
-  setTimeValue(newValue)
-}
-
-
-  function handleSubmit(e){
-    e.preventDefault() 
-    const new_booking = {
-      first_name, 
-      
-      phone_number
-      
-    }  
-    setBookings([...bookings, new_booking])
-   
-  }
-  
-     
-    
-   
-    
-   
-  return (
+  const {dentalServices} = useContext(BookingContext) 
+  const {register, formState:{errors}, handleSubmit} = useForm()
+ 
+  return ( 
+    <div className='booking-container'> 
+    <Sidebar/>
     <div className='booking-form'>
         <h1>Book Patient Appointment</h1> 
-        <form onSubmit={handleSubmit}>
+        <hr/>
+        
+   <form onSubmit={handleSubmit((first_name,phoneNo,services,dateofappointment, appointmentTime) => {
+      const new_booking = {
+        first_name, 
+        phoneNo, 
+        services, 
+        dateofappointment, 
+        appointmentTime
+      } 
+      console.log(new_booking)
+   })}>     
   <div className="row">
     <div className="col"> 
     <label>First name</label>
-      <input onChange={(e) => setFirstName(e.target.value)} type="text" className="form-control"  value={first_name}/>
+    <input className='form-control' {...register("first_name", {
+    required: "Name is required", 
+    pattern: {
+      value: /^[A-Z][a-z-']{2,20}$\S*/, 
+      message:"Name must begin with a capital letter and no whitespaces"
+    }
+  })}/> 
+  <p>{errors.first_name?.message}</p>
     </div>
     
   
     
     <div className="col"> 
     <label>Phone Number</label>
-    <input onChange={(e) => setPhoneNumber(e.target.value)} type="text" className="form-control"  value={phone_number}/>
+    <input className='form-control' {...register("phoneNo",{ 
+        required:"Phone number is required", 
+        pattern:{
+          value:/^(?:254|\+254|0)?(7(?:(?:[12][0-9])|(?:0[0-8])|(9[0-2]))[0-9]{6})$/, 
+          message:"Phone number is not valid/must begin with 07,254,+254"
+        }
+
+      })} /> 
+  <p>{errors.phoneNo?.message}</p>
     </div>
   </div>  
-  <div>
-  <div class="form-check">
+  <div className='checkbox-service'> 
+   <label>Services</label>
+    {dentalServices.map((service) => ( 
+      <div><input className='checkbox' type='checkbox' value={service.service} {...register('services')} />{service.service} - {service.cost}</div>
+
+    ))}
   
-  <label class="form-check-label" for="flexCheckChecked"> 
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-  Teeth Cleanings 
-  </label>
+  
+  
+  
   </div> 
-  <div class="form-check">
-  
-  <label class="form-check-label" for="flexCheckChecked"> 
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-  Teeth Whitening 
-  </label>
-  </div> 
-  <div class="form-check">
-  
-  <label class="form-check-label" for="flexCheckChecked"> 
-  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"/>
-  Extractions 
-  </label>
+  <div className='row'> 
+
+  <div className='col'>
+  <label>Date of Appointment</label>
+<input className='form-control' type="date" {...register("dateofappointment", {
+  valueAsDate: true
+})} /><span className="input-group-addon"><span className="glyphicon glyphicon-calendar"></span>
+</span>
+ <p>{errors.dateofappointment?.message}</p>
   </div>
+  <div className='col'>
+  <label>Time of Appointment</label>
+<input className='form-control' type="time" {...register("appointmentTime", {
   
+})} />
+ <p>{errors.appointmentTime?.message}</p>
   </div> 
-  <div> 
-    <label>Time Appointment</label>
-    <input type="time"/>
   </div>
  
 
@@ -94,39 +93,10 @@ function timeChange(newValue){
    
   <input type="submit" className="btn btn-primary btn-lg" value="Submit"/>
 </form>  
-<div>
-        <h1>BookingsList</h1> 
-        
- <table className="table">
-  <thead>
-    <tr>
-      
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Age</th>  
-      <th scope="col">Phone Number</th> 
-    </tr>
-  </thead>
-  <tbody>
-     
-      {bookings.map((booking) => (
-        <tr>
-        <td>{booking.first_name}</td> 
-        <td>{booking.last_name}</td> 
-        <td>{booking.age}</td> 
-        <td>{booking.phone_number}</td>
-        </tr>
-      ))}
-     
-      
-    
-    
-  </tbody>
-</table>
 
- </div>
  
   
+    </div> 
     </div>
   )
 }
