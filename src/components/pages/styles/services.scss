@@ -1,0 +1,36 @@
+.services{ 
+    background-color: rgb(153, 202, 186);
+    margin: 0; 
+    display: flex; 
+    align-items: center; 
+    flex-direction: column; 
+    justify-content: center;
+ 
+ h3{
+    color: rgb(15, 40, 49);
+} 
+h1{
+    color: rgb(3, 3, 19);
+} 
+.service-grid{
+    display: flex; 
+    flex-wrap: wrap; 
+    margin: 38px; 
+    width: 90%;
+
+.service-grid>*{
+    flex: 2 2; 
+    margin: 10px;
+} 
+.grid-item{ 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column;  
+    margin-bottom: 25px;
+    width: 400px;
+    
+   
+} 
+} 
+}

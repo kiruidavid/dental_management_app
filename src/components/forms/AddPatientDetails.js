@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react' 
 import {PatientContext} from '../../contents/Patients/PatientState' 
-import Sidebar from '../pages/bars/Sidebar' 
+
 import {useForm} from 'react-hook-form'
 import './styles/patientform.scss' 
 import "react-datepicker/dist/react-datepicker.css";
@@ -15,7 +15,7 @@ function AddPatientDetails() {
   
   return (
     <div className='patient-container'> 
-      <Sidebar/>
+   
     <div className='patient-form'>
     <h1>PATIENT DETAILS</h1> 
     <hr/>

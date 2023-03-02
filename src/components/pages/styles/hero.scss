@@ -1,0 +1,31 @@
+.hero-section{
+    background:  linear-gradient(rgba(155, 160, 80, 0.9), rgba(21, 28, 167, 0.7)),url("../../../../public/images/dental.png"); 
+    height: 100vh; 
+    background-position: center; 
+    background-size: cover ;  
+    width: 100%;
+    .hero-content{
+        display: flex; 
+        height: 100vh; 
+        align-items: center; 
+        justify-content: center; 
+        flex-direction: column; 
+        
+      
+       
+        h1{
+          font-size: 65px;
+      } 
+      p{
+          font-size: 35px;
+      } 
+      button{
+          background-color: rgb(29, 51, 29); 
+          border-radius: 12px; 
+          width: 367px; 
+          height: 56px; 
+          font-size: 23px;
+          color: white;
+      } 
+    }
+} 

@@ -22,7 +22,7 @@ export const PatientProvider = ({children}) => {
       
   } 
   function getPatientDetails(){ 
-    
+    console.log(patients)
     
   } 
   return <PatientContext.Provider value={{patients, addPatients, getPatientDetails}}>

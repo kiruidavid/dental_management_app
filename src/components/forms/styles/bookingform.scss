@@ -7,13 +7,15 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    flex-direction: column;
-    h1{
-        text-align: center; 
-      
-      
-        
-    } 
+    flex-direction: column; 
+    
+    h1{ 
+        justify-self: flex-start;
+        text-align: center;  
+     }    
+    
+    
+    
     form{  
         label{
             font-size: 24px; 

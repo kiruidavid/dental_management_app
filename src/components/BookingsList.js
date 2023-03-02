@@ -1,22 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react' 
+import {BookingContext} from '../contents/Bookings/BookingsState'
 
 function BookingsList() { 
+  const {bookings, deleteBookings} = useContext(BookingContext)
       
-  const [bookings, setBookings] = useState([
-    {
-      first_name: "David", 
-      last_name: "Wendot", 
-      age: 23, 
-      phone_number: "56655"
-    },  
-    {
-      first_name: "Mike", 
-      last_name: "Lowry", 
-      age: 33, 
-      phone_number: "0756655"
-    }, 
-
-]) 
+  
   
   return (
     <div>
@@ -27,9 +15,11 @@ function BookingsList() {
     <tr>
       
       <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Age</th>  
-      <th scope="col">Phone Number</th> 
+        
+      <th scope="col">Phone Number</th>  
+      <th scope="col">Procedures</th> 
+      <th scope="col">Date of Appointment</th> 
+      <th scope="col">Time</th>
     </tr>
   </thead>
   <tbody>
@@ -37,9 +27,12 @@ function BookingsList() {
       {bookings.map((booking) => (
         <tr>
         <td>{booking.first_name}</td> 
-        <td>{booking.last_name}</td> 
-        <td>{booking.age}</td> 
-        <td>{booking.phone_number}</td>
+        <td>{booking.phoneNo}</td> 
+        <td>{booking.checkedServices.map((service) => service).join(',')}</td> 
+        <td>{booking.dateofappointment}</td> 
+        <td>{booking.appointmentTime}</td> 
+        <button>UPDATE</button> 
+        <button >DELETE</button>
         </tr>
       ))}
      
