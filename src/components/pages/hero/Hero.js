@@ -13,7 +13,7 @@ function Hero() {
          
           <h1>DENTAL MANAGEMENT SYSTEM</h1>
          <p>The best dental services with easy booking system</p> 
-         <button><Link smooth={true} to='pricing'>Book now</Link></button>
+         <button><Link  to='/add-booking'>Book now</Link></button>
 
         </div>
     </div>

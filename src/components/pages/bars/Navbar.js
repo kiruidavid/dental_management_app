@@ -10,12 +10,12 @@ function Navbar() {
   return ( 
     <div className='navbar'>
     
-    <div className='nav-logo'><Link to='home' smooth={true}><TbDental/>Dental Management System</Link></div> 
+    <div className='nav-logo'><Link to='/' smooth={true}><TbDental/>Dental Management System</Link></div> 
     <ul className='nav-links'> 
     
      
      <Link className='user-details'>View Details</Link>
-     <Link className='login-button'>Login/Register</Link> 
+     <Link to='/add-patients' className='login-button'>Login/Register</Link> 
     </ul>  
    
    

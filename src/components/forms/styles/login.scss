@@ -1,15 +1,18 @@
-
-
-.patient-container{ 
+.login-container{  
    
     width: 100%; 
-    display: flex;
-}
-.patient-form{ 
+    display: flex; 
+    height: 100%;
+.login-form{
+   
+   
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column; 
     margin: 82px;
     flex: 6;
-    display: flex; 
-    align-items: center;
+   
    
     flex-direction: column; 
     h1{
@@ -19,8 +22,9 @@
     } 
     form{ 
         label{
-            font-size: 24px; 
-            font-weight: bold;
+            font-size: 16px; 
+            font-weight: bold; 
+            text-align: center;
         }
         input{ 
         width: 470px; 
@@ -36,3 +40,4 @@
        
     }
 } 
+}

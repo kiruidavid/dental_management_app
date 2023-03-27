@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap'); 
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/material.css";
 *{
-  font-family: 'Fugaz One', cursive;
+  font-family: 'Fugaz One', cursive; 
+
 }
 body{
   margin: 0; 
   padding: 0; 
-  background:  aquamarine;
+  background-color: rgb(184, 184, 120);
+  
 }

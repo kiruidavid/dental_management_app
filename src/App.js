@@ -3,7 +3,8 @@ import Home from './components/pages/Home';
 import Booking from './components/forms/Booking'; 
 import {BookingProvider} from './contents/Bookings/BookingsState'
 import BookingsList from './components/BookingsList'; 
-import PatientList from './components/PatientList';
+import PatientList from './components/PatientList'; 
+import Login from './components/forms/Login';
 import AddPatientDetails from './components/forms/AddPatientDetails'; 
 import {PatientProvider} from './contents/Patients/PatientState'
 import './App.css';
@@ -16,10 +17,12 @@ function App() {
         <Router>
           <Routes> 
             <Route path='/' element={<Home/>}/>
-            <Route path='/add-patients' element={<AddPatientDetails/>}/> 
+            <Route path='/add-patients' element={<AddPatientDetails/>}/>  
+            <Route path='/login' element={<Login/>}/>
             <Route path='/patient-details' element={<PatientList/>} /> 
             <Route path='/add-booking' element={<Booking/>}/> 
-            <Route path='/bookings' element={<BookingsList/>}/>
+            <Route path='/bookings' element={<BookingsList/>}/> 
+            
           </Routes>
         </Router>
       </PatientProvider> 
