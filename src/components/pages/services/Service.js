@@ -7,7 +7,7 @@ function Service() {
   return (
     <div className='services' id='services'>
     <h3>What We Do</h3> 
-    <h1>D<TbDental color={'red'}/>ental  Services</h1> 
+    <h1><TbDental color={'red'}/>Dental  Services</h1> 
     <div className='service-grid'> 
        <div className='grid-item'>
         <TbDental size={'34px'}/>

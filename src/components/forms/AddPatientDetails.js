@@ -36,11 +36,7 @@ function AddPatientDetails() {
         password
 
       }   
-     axios.post("http://localhost:3400/api/patients/register", new_patient).then((res) => {
-      console.log(res)
-     }).catch((error)=> {
-      console.log(error)
-     })
+     addPatients(new_patient)
      
      
     })}>

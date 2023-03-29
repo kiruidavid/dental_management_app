@@ -11,6 +11,6 @@
 body{
   margin: 0; 
   padding: 0; 
-  background-color: rgb(184, 184, 120);
+  background: linear-gradient(90deg,rgba(155, 160, 80, 0.9), rgba(21, 28, 167, 0.7)),url("../public/images/dental.png");
   
 }

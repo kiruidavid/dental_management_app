@@ -1,13 +1,16 @@
 .booking-container{
     display: flex; 
-    width: 100%;
+    width: 100%; 
+  
+   
 }
 .booking-form{ 
     flex: 6;
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    flex-direction: column; 
+    flex-direction: column;  
+    height: 100%;
     
     h1{ 
         justify-self: flex-start;

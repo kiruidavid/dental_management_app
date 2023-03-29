@@ -6,14 +6,16 @@ import BookingsList from './components/BookingsList';
 import PatientList from './components/PatientList'; 
 import Login from './components/forms/Login';
 import AddPatientDetails from './components/forms/AddPatientDetails'; 
-import {PatientProvider} from './contents/Patients/PatientState'
+import {PatientProvider} from './contents/Patients/PatientState' 
+import { AuthProvider } from './contents/Auth/AuthState';
 import './App.css';
 
 function App() {
   return (
     <div className="App"> 
     <BookingProvider>
-      <PatientProvider>
+      <PatientProvider> 
+        <AuthProvider>
         <Router>
           <Routes> 
             <Route path='/' element={<Home/>}/>
@@ -24,7 +26,8 @@ function App() {
             <Route path='/bookings' element={<BookingsList/>}/> 
             
           </Routes>
-        </Router>
+        </Router> 
+        </AuthProvider>
       </PatientProvider> 
       </BookingProvider>
      
